@@ -1,8 +1,15 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
+import '../../data/models/characters.dart';
+import '../../data/repository/characters_repository.dart';
+
 part 'characters_state.dart';
 
 class CharactersCubit extends Cubit<CharactersState> {
-  CharactersCubit() : super(CharactersInitial());
+  CharactersCubit(this.charactersRepository) : super(CharactersInitial());
+
+  final CharactersRepository charactersRepository;
+  List<Character> characters = [];
+
 }
